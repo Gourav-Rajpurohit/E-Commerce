@@ -109,4 +109,4 @@ const getUserProfile = async (req, res) => {
     }
 };
 
-export { loginUser, registerUser, adminLogin, getUserProfile };
+export { loginUser, registerUser, adminLogin, getUserProfile, createToken };

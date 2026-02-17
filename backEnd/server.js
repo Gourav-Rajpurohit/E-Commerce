@@ -1,6 +1,6 @@
-import dotenv from 'dotenv'
+import 'dotenv/config'
 import compression from 'compression'
-dotenv.config();
+import './config/passport.js'
 
 import express from 'express'
 import cors from 'cors'
@@ -11,8 +11,11 @@ import productRouter from './routes/productsRoutes.js'
 import cartRouter from './routes/cartRoutes.js'
 import orderRouter from './routes/orderRoutes.js'
 
+import './config/passport.js'
+import passport from 'passport'
 
 const app = express()
+app.use(passport.initialize())
 // const port = process.env.PORT || 4000
 const port = 4000
 connectDB()

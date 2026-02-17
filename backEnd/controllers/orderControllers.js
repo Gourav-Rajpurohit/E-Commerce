@@ -7,14 +7,6 @@ import razorpay from 'razorpay'
 const currency = 'inr'
 const deliveryCharge = 10
 
-console.log("STRIPE KEY:", process.env.STRIPE_SECRET_KEY);
-// Gateway initialize
-// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
-// const razorpayInstance = new razorpay({
-//     key_id: process.env.RAZORPAY_KEY_ID,
-//     key_secret: process.env.RAZORPAY_KEY_SECRET,
-// })
-
 // Placing orders using COD Method
 const placeOrder = async (req, res) => {
     try {
@@ -124,11 +116,11 @@ const verifyStripe = async (req, res) => {
 // Placing orders using Razorpay Method
 const placeOrderRazorpay = async (req, res) => {
     const razorpayInstance = new razorpay({
-    key_id: process.env.RAZORPAY_KEY_ID,
-    key_secret: process.env.RAZORPAY_KEY_SECRET,
+        key_id: process.env.RAZORPAY_KEY_ID,
+        key_secret: process.env.RAZORPAY_KEY_SECRET,
     })
     try {
-         const userId = req.userId
+        const userId = req.userId
         const { items, amount, address } = req.body
 
         const orderData = {

@@ -15,9 +15,8 @@ import './config/passport.js'
 import passport from 'passport'
 
 const app = express()
-app.use(passport.initialize())
-// const port = process.env.PORT || 4000
-const port = 4000
+const port = process.env.PORT || 4000
+// const port = 4000
 connectDB()
 connectCloudinary()
 

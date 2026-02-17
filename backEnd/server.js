@@ -12,6 +12,7 @@ import cartRouter from './routes/cartRoutes.js'
 import orderRouter from './routes/orderRoutes.js'
 
 const app = express()
+app.set("trust proxy", 1);
 
 // connect DB only once per instance
 let dbReady = false;

@@ -13,6 +13,7 @@ const connectDB = async () => {
     cached.promise = mongoose.connect(process.env.MONGODB_URL, {
       dbName: "E-commerce",
       bufferCommands: false,
+      serverSelectionTimeoutMS: 5000
     });
   }
 

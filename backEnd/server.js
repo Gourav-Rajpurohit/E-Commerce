@@ -14,7 +14,20 @@ import orderRouter from './routes/orderRoutes.js'
 const app = express()
 
 // connect DB only once per instance
-await connectDB();
+let dbReady = false;
+
+const ensureDB = async () => {
+  if (!dbReady) {
+    await connectDB();
+    dbReady = true;
+  }
+};
+
+app.use(async (req, res, next) => {
+  await ensureDB();
+  next();
+});
+
 
 app.use(express.json())
 app.use(cors())

@@ -13,7 +13,7 @@ const client = mailgun.client({
 const sendOTPEmail = async (email, otp) => {
     try {
         const messageData = {
-            from: process.env.MAIL_FROM || 'Excited User <mailgun@YOUR_DOMAIN_NAME>',
+            from: process.env.MAIL_FROM || `Excited User <mailgun@${process.env.MAILGUN_DOMAIN}>`,
             to: email,
             subject: 'Your Password Reset OTP',
             text: `Your OTP for password reset is: ${otp}. It is valid for 10 minutes.`,
